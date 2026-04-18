@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Shop | Ocassion 365</title>
+    <meta name="description" content="Shop premium belts, chain belts, and sneakers. Black and brown essentials.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Additional Shop-Specific Styles -->
+    <style>
+        .shop-header {
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            text-align: center;
+        }
+        
+        .shop-header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .shop-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .shop-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(92, 58, 33, 0.1);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 30px;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--brown);
+            color: var(--cream);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg) var(--spacing-md);
+            padding: var(--spacing-md) 0 var(--spacing-xl);
+        }
+        
+        .product-card {
+            background: var(--cream);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .product-image-wrapper {
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card.wide-image .product-image-wrapper {
+            background: var(--cream);
+        }
+        
+        .product-card.wide-image img {
+            object-fit: contain;
+            padding: var(--spacing-md);
+        }
+        
+        .product-card:hover img {
+            transform: scale(1.03);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--brown);
+            color: var(--cream);
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        
+        .product-info {
+            padding: var(--spacing-xs) 0;
+            text-align: center;
+        }
+        
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        
+        .product-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            color: var(--brown);
+        }
+        
+        .product-price {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: var(--spacing-xs);
+            justify-content: center;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.75rem;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            scroll-margin-top: 100px;
+            padding-top: var(--spacing-md);
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+            padding-bottom: var(--spacing-xs);
+            border-bottom: 1px solid rgba(92, 58, 33, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .shop-filters {
+                gap: var(--spacing-xs);
+            }
+            
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
+    </div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <img src="images/logo/crowned-o-icon.png" alt="Menu" width="32" height="32">
+            </button>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html#belts">Belts</a></li>
+                    <li><a href="shop.html#sneakers">Sneakers</a></li>
+                    <li><a href="lookbook.html">Lookbook</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                </a>
+            </div>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-icon" aria-label="Cart">
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="contact.html" class="contact-link">Contact</a>
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="shop.html#belts">Belts</a></li>
+            <li><a href="shop.html#sneakers">Sneakers</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    
+    <main>
+        
+        <!-- Shop Header -->
+        <section class="shop-header">
+            <div class="container">
+                <h1>Shop All</h1>
+                <p>Black & Brown Essentials</p>
+            </div>
+        </section>
+        
+        <!-- Filters -->
+        <div class="container">
+            <div class="shop-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="harness">Harness Belts</button>
+                <button class="filter-btn" data-filter="chain">Chain Belts</button>
+                <button class="filter-btn" data-filter="classic">Classic Belts</button>
+                <button class="filter-btn" data-filter="sneakers">Sneakers</button>
+            </div>
+        </div>
+        
+        <!-- Product Grid -->
+        <div class="container">
+            <div class="product-grid" id="productGrid">
+                
+                <!-- Harness Belts -->
+                <div class="product-card" data-category="harness">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">New</span>
+                        <img src="images/hero/hero-1.jpg" alt="The Crown Harness - Black" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Harness Belt</div>
+                        <h3 class="product-title">The Crown Harness — Black</h3>
+                        <div class="product-price">KSh 3,500</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Crown Harness - Black" data-price="3500">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="harness">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/harness-brown.jpg" alt="The Earth Harness - Brown" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Harness Belt</div>
+                        <h3 class="product-title">The Earth Harness — Brown</h3>
+                        <div class="product-price">KSh 3,800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Earth Harness - Brown" data-price="3800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chain Belts -->
+                <div class="product-card" data-category="chain">
+                    <div class="product-image-wrapper">
+                        <img src="images/chain-collection/chain-coin-wide.jpg" alt="The Sherehe Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain Belt</div>
+                        <h3 class="product-title">The Sherehe Chain — Gold</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Sherehe Chain" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chain">
+                    <div class="product-image-wrapper">
+                        <img src="images/chain-collection/chain-layered-wide.jpg" alt="The Layered Medallion" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain Belt</div>
+                        <h3 class="product-title">The Layered Medallion</h3>
+                        <div class="product-price">KSh 2,600</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Layered Medallion" data-price="2600">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chain">
+                    <div class="product-image-wrapper">
+                        <img src="images/chain-collection/chain-disc-wide.jpg" alt="The Disc Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain Belt</div>
+                        <h3 class="product-title">The Disc Chain — Gold</h3>
+                        <div class="product-price">KSh 2,400</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Disc Chain" data-price="2400">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Classic Belts -->
+                <div class="product-card" data-category="classic">
+                    <div class="product-image-wrapper">
+                        <img src="images/lookbook/lookbook-thin-belts.jpg" alt="The Signature Thin Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Classic Belt</div>
+                        <h3 class="product-title">The Signature Thin Belt</h3>
+                        <div class="product-price">KSh 1,800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Signature Thin Belt" data-price="1800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card wide-image" data-category="classic">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-brown-wide.jpg" alt="The Wide Leather Belt - Brown" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Classic Belt</div>
+                        <h3 class="product-title">The Wide Belt — Brown</h3>
+                        <div class="product-price">KSh 4,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Wide Belt - Brown" data-price="4200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card wide-image" data-category="classic">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-black-wide.jpg" alt="The Wide Leather Belt - Black" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Classic Belt</div>
+                        <h3 class="product-title">The Wide Belt — Black</h3>
+                        <div class="product-price">KSh 4,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Wide Belt - Black" data-price="4200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="classic">
+                    <div class="product-image-wrapper">
+                        <img src="images/lookbook/lookbook-corset.jpg" alt="The Sculpt Corset - Black" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Corset Belt</div>
+                        <h3 class="product-title">The Sculpt Corset — Black</h3>
+                        <div class="product-price">KSh 4,800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Sculpt Corset" data-price="4800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sneakers -->
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/hero/hero-2.jpg" alt="The Statement Runner - Neon" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">The Statement Runner — Neon</h3>
+                        <div class="product-price">KSh 6,500</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Statement Runner - Neon" data-price="6500">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-grey.jpg" alt="The Daily Stride - Grey" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">The Daily Stride — Grey</h3>
+                        <div class="product-price">KSh 5,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Daily Stride - Grey" data-price="5200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-pink.jpg" alt="The Soft Step - Pink" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">The Soft Step — Pink</h3>
+                        <div class="product-price">KSh 5,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Soft Step - Pink" data-price="5200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Section Headers for Anchor Links -->
+        <div class="container">
+            <div id="belts" class="section-header"></div>
+            <div id="harness" class="section-header"></div>
+            <div id="chain" class="section-header"></div>
+            <div id="classic" class="section-header"></div>
+            <div id="sneakers" class="section-header"></div>
+        </div>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            
+            <div class="footer-logo">
+                <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                <p class="footer-tagline">Black & Brown. Every Day. Every Occasion.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html#belts">Belts</a></li>
+                        <li><a href="shop.html#sneakers">Sneakers</a></li>
+                        <li><a href="shop.html#chain">Chain Belts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shipping.html">Shipping & Returns</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>📍 Nairobi, Kenya</p>
+                <p>💳 M-Pesa Paybill: 123456 • Account: OCCASION365</p>
+                <p>© 2025 Ocassion 365. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span>💬</span>
+        <span>Order via WhatsApp</span>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Shop Filter JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const products = document.querySelectorAll('.product-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    
+                    // Filter products
+                    products.forEach(product => {
+                        if (filter === 'all' || product.dataset.category === filter) {
+                            product.style.display = 'block';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Add to Cart functionality
+            const addToCartBtns = document.querySelectorAll('.add-to-cart');
+            
+            addToCartBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const productName = this.dataset.product;
+                    const productPrice = this.dataset.price;
+                    
+                    // Add to cart (using Cart object from main.js)
+                    if (typeof Cart !== 'undefined') {
+                        Cart.add({
+                            name: productName,
+                            price: productPrice,
+                            quantity: 1
+                        });
+                        
+                        // Visual feedback
+                        this.textContent = 'Added!';
+                        setTimeout(() => {
+                            this.textContent = 'Add to Cart';
+                        }, 1500);
+                    }
+                });
+            });
+            
+            // Product card click navigates to product page (placeholder)
+            products.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('add-to-cart')) {
+                        // Placeholder - would navigate to individual product page
+                        const productTitle = this.querySelector('.product-title')?.textContent || 'Product';
+                        alert('Product page coming soon: ' + productTitle);
+                    }
+                });
+            });
+            
+        });
+    </script>
+</body>
+</html>
