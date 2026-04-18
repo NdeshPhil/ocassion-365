@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Contact | Ocassion 365</title>
+    <meta name="description" content="Get in touch with Ocassion 365. WhatsApp, email, or visit us in Nairobi.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .page-header {
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Grid */
+        .contact-section {
+            padding: var(--spacing-md) 0 var(--spacing-xl);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        /* Contact Methods */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .contact-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-link {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--brown);
+            border-bottom: 1px solid var(--brown);
+            padding-bottom: 2px;
+        }
+        
+        .contact-link:hover {
+            opacity: 0.7;
+        }
+        
+        .contact-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* WhatsApp Highlight Card */
+        .whatsapp-card {
+            background: #25D366;
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+        
+        .whatsapp-card .contact-icon {
+            color: white;
+        }
+        
+        .whatsapp-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .whatsapp-card p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .whatsapp-card .btn {
+            background: white;
+            color: #25D366;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .whatsapp-card .btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+        }
+        
+        .contact-form-container h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .contact-form-container p {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .form-group label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px 16px;
+            border: 1px solid rgba(92, 58, 33, 0.2);
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            background: var(--cream);
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--brown);
+            background: white;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit {
+            margin-top: var(--spacing-sm);
+        }
+        
+        .form-submit .btn {
+            width: 100%;
+        }
+        
+        /* Business Hours */
+        .hours-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--cream);
+        }
+        
+        .hours-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hours-container h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--spacing-sm) var(--spacing-lg);
+            text-align: left;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        .hours-day {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .hours-time {
+            color: var(--text-light);
+        }
+        
+        .hours-note {
+            margin-top: var(--spacing-md);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Location Map Placeholder */
+        .location-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+        }
+        
+        .location-container {
+            text-align: center;
+        }
+        
+        .location-container h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .location-address {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .location-map-placeholder {
+            background: var(--cream);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: var(--text-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--spacing-xs);
+            }
+            
+            .hours-day {
+                margin-top: var(--spacing-sm);
+            }
+            
+            .hours-time {
+                margin-bottom: var(--spacing-xs);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
+    </div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <img src="images/logo/crowned-o-icon.png" alt="Menu" width="32" height="32">
+            </button>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html#belts">Belts</a></li>
+                    <li><a href="shop.html#sneakers">Sneakers</a></li>
+                    <li><a href="lookbook.html">Lookbook</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                </a>
+            </div>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-icon" aria-label="Cart">
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="contact.html" class="contact-link">Contact</a>
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="shop.html#belts">Belts</a></li>
+            <li><a href="shop.html#sneakers">Sneakers</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    
+    <main>
+        
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p>We would love to hear from you</p>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    
+                    <!-- Left Column: Contact Methods -->
+                    <div class="contact-methods">
+                        
+                        <!-- WhatsApp Card (Highlighted) -->
+                        <div class="whatsapp-card">
+                            <div class="contact-icon">💬</div>
+                            <h3>Order via WhatsApp</h3>
+                            <p>Fastest way to place an order. We respond within minutes during business hours.</p>
+                            <a href="https://wa.me/254XXXXXXXXX" class="btn" target="_blank">Message on WhatsApp →</a>
+                            <p class="contact-note" style="color: rgba(255,255,255,0.8);">+254 XXX XXX XXX</p>
+                        </div>
+                        
+                        <!-- Email Card -->
+                        <div class="contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <h3>Email Us</h3>
+                            <p>For inquiries, wholesale, or press.</p>
+                            <a href="mailto:hello@ocassion365.com" class="contact-link">hello@ocassion365.com</a>
+                            <p class="contact-note">We respond within 24 hours</p>
+                        </div>
+                        
+                        <!-- Phone Card -->
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <h3>Call Us</h3>
+                            <p>Available during business hours.</p>
+                            <a href="tel:+254XXXXXXXXX" class="contact-link">+254 XXX XXX XXX</a>
+                            <p class="contact-note">Mon–Fri, 9am–6pm EAT</p>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Right Column: Contact Form -->
+                    <div class="contact-form-container">
+                        <h2>Send a Message</h2>
+                        <p>Fill out the form and we will get back to you.</p>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+254 XXX XXX XXX">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="order">Order Inquiry</option>
+                                    <option value="product">Product Question</option>
+                                    <option value="wholesale">Wholesale Inquiry</option>
+                                    <option value="press">Press / Media</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                            </div>
+                            
+                            <div class="form-submit">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Business Hours -->
+        <section class="hours-section">
+            <div class="container">
+                <div class="hours-container">
+                    <h2>Business Hours</h2>
+                    <div class="hours-grid">
+                        <span class="hours-day">Monday – Friday</span>
+                        <span class="hours-time">9:00 AM – 6:00 PM EAT</span>
+                        
+                        <span class="hours-day">Saturday</span>
+                        <span class="hours-time">10:00 AM – 4:00 PM EAT</span>
+                        
+                        <span class="hours-day">Sunday</span>
+                        <span class="hours-time">Closed</span>
+                    </div>
+                    <p class="hours-note">WhatsApp orders placed outside business hours will be responded to the next business day.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Location -->
+        <section class="location-section">
+            <div class="container">
+                <div class="location-container">
+                    <h2>Visit Us</h2>
+                    <p class="location-address">Nairobi, Kenya</p>
+                    <div class="location-map-placeholder">
+                        <p>📍 Pickup available by appointment</p>
+                    </div>
+                    <p style="margin-top: var(--spacing-md); color: var(--text-light);">
+                        Contact us to schedule a pickup or viewing.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            
+            <div class="footer-logo">
+                <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                <p class="footer-tagline">Black & Brown. Every Day. Every Occasion.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html#belts">Belts</a></li>
+                        <li><a href="shop.html#sneakers">Sneakers</a></li>
+                        <li><a href="shop.html#chain">Chain Belts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shipping.html">Shipping & Returns</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>📍 Nairobi, Kenya</p>
+                <p>💳 M-Pesa Paybill: 123456 • Account: OCCASION365</p>
+                <p>© 2025 Ocassion 365. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span>💬</span>
+        <span>Order via WhatsApp</span>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Contact Form JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // Placeholder - would send to server
+                    console.log('Form submitted:', formData);
+                    
+                    // Show success message
+                    alert('Thank you for your message. We will get back to you soon.');
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+            
+        });
+    </script>
+</body>
+</html>
