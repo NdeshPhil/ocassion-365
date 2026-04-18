@@ -7,15 +7,12 @@
     <title>Shipping & Returns | Ocassion 365</title>
     <meta name="description" content="Shipping, delivery, and returns information for Ocassion 365.">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     
     <style>
@@ -38,7 +35,6 @@
             margin: 0 auto;
         }
         
-        /* Content Sections */
         .policy-section {
             padding: var(--spacing-lg) 0;
         }
@@ -85,7 +81,6 @@
             margin-bottom: var(--spacing-xs);
         }
         
-        /* Shipping Rates Table */
         .rates-table {
             width: 100%;
             border-collapse: collapse;
@@ -120,7 +115,6 @@
             color: var(--brown);
         }
         
-        /* Info Cards */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -152,7 +146,6 @@
             margin-bottom: 0;
         }
         
-        /* M-Pesa Section */
         .mpesa-section {
             background: var(--brown);
             color: var(--cream);
@@ -196,7 +189,6 @@
             font-family: var(--font-serif);
         }
         
-        /* FAQ Accordion */
         .faq-section {
             margin-top: var(--spacing-lg);
         }
@@ -240,7 +232,6 @@
             display: block;
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .info-grid {
                 grid-template-columns: 1fr;
@@ -267,18 +258,22 @@
 </head>
 <body>
     
-    <!-- Announcement Bar -->
     <div class="announcement-bar">
         <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
     </div>
     
-    <!-- Header -->
     <header class="site-header">
         <div class="header-container">
             
             <button class="mobile-menu-toggle" aria-label="Menu">
                 <img src="images/logo/crowned-o-icon.png" alt="Menu" width="32" height="32">
             </button>
+            
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                </a>
+            </div>
             
             <nav class="main-nav">
                 <ul>
@@ -290,12 +285,6 @@
                 </ul>
             </nav>
             
-            <div class="logo-wrapper">
-                <a href="index.html" class="logo">
-                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
-                </a>
-            </div>
-            
             <div class="header-actions">
                 <a href="#" class="cart-icon" aria-label="Cart">
                     <span class="cart-count">0</span>
@@ -306,7 +295,6 @@
         </div>
     </header>
     
-    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <button class="mobile-menu-close" aria-label="Close menu">✕</button>
         <ul>
@@ -321,7 +309,6 @@
     
     <main>
         
-        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <h1>Shipping & Returns</h1>
@@ -329,7 +316,6 @@
             </div>
         </section>
         
-        <!-- Shipping Section -->
         <section class="policy-section">
             <div class="container">
                 <div class="policy-container">
@@ -395,7 +381,6 @@
             </div>
         </section>
         
-        <!-- M-Pesa Payment Section -->
         <section class="policy-section">
             <div class="container">
                 <div class="policy-container">
@@ -438,7 +423,6 @@
             </div>
         </section>
         
-        <!-- Returns Section -->
         <section class="policy-section">
             <div class="container">
                 <div class="policy-container">
@@ -476,7 +460,6 @@
             </div>
         </section>
         
-        <!-- FAQ Section -->
         <section class="policy-section">
             <div class="container">
                 <div class="policy-container">
@@ -541,7 +524,6 @@
         
     </main>
     
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-container">
             
@@ -583,39 +565,33 @@
             <div class="container footer-bottom-content">
                 <p>📍 Nairobi, Kenya</p>
                 <p>💳 M-Pesa Paybill: 123456 • Account: OCCASION365</p>
-                <p>© 2025 Ocassion 365. All rights reserved.</p>
+                <p>© 2026 Ocassion 365. All rights reserved.</p>
             </div>
         </div>
     </footer>
     
-    <!-- WhatsApp Float -->
     <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
         <span>💬</span>
         <span>Order via WhatsApp</span>
     </a>
     
-    <!-- JavaScript -->
     <script src="js/main.js"></script>
     
-    <!-- FAQ Accordion JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
             
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 
                 question.addEventListener('click', () => {
-                    // Close other items
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item && otherItem.classList.contains('active')) {
                             otherItem.classList.remove('active');
                         }
                     });
                     
-                    // Toggle current item
                     item.classList.toggle('active');
                 });
             });
