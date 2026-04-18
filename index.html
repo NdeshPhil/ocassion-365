@@ -3,9 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocassion 365</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Ocassion 365 | Black & Brown Accessories</title>
+    <meta name="description" content="Premium belts and accessories. Black and brown essentials for every day.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Ocassion 365 — Coming Soon</h1>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
+    </div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <img src="images/logo/crowned-o-icon.png" alt="Menu" width="32" height="32">
+            </button>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html#belts">Belts</a></li>
+                    <li><a href="shop.html#sneakers">Sneakers</a></li>
+                    <li><a href="lookbook.html">Lookbook</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Logo (Center) -->
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365 Official Store">
+                </a>
+            </div>
+            
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <a href="#" class="cart-icon" aria-label="Cart">
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="contact.html" class="contact-link">Contact</a>
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="shop.html#belts">Belts</a></li>
+            <li><a href="shop.html#sneakers">Sneakers</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-slider">
+                
+                <!-- Slide 1: Black Harness -->
+                <div class="hero-slide active" data-slide="1">
+                    <img src="images/hero/hero-1.jpg" alt="Black Harness Belt - Ocassion 365">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Wear the Crown.</h1>
+                        <p class="hero-subtitle">The Harness Belt — Black</p>
+                        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 2: Neon Sneakers (Image on right, text on left) -->
+                <div class="hero-slide sneaker-slide" data-slide="2">
+                    <img src="images/hero/hero-2.jpg" alt="Statement Sneakers - Ocassion 365">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Step Loud.</h1>
+                        <p class="hero-subtitle">The Statement Runner — Neon</p>
+                        <a href="shop.html#sneakers" class="btn btn-primary">Shop Sneakers</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Hero Dots -->
+            <div class="hero-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+            </div>
+        </section>
+        
+        <!-- Featured Categories -->
+        <section class="featured-categories">
+            <div class="container">
+                <h2 class="section-title">Shop by Category</h2>
+                <div class="category-grid">
+                    
+                    <a href="shop.html#harness" class="category-card">
+                        <div class="category-image-wrapper">
+                            <img src="images/products/harness-brown.jpg" alt="Harness Belts" loading="lazy">
+                        </div>
+                        <h3>Harness Belts</h3>
+                        <span class="category-link">Shop →</span>
+                    </a>
+                    
+                    <a href="shop.html#chain" class="category-card">
+                        <div class="category-image-wrapper">
+                            <img src="images/chain-collection/chain-coin-wide.jpg" alt="Chain Belts" loading="lazy">
+                        </div>
+                        <h3>Chain Belts</h3>
+                        <span class="category-link">Shop →</span>
+                    </a>
+                    
+                    <a href="shop.html#classic" class="category-card">
+                        <div class="category-image-wrapper">
+                            <img src="images/products/belt-black-wide.jpg" alt="Classic Belts" loading="lazy">
+                        </div>
+                        <h3>Classic Belts</h3>
+                        <span class="category-link">Shop →</span>
+                    </a>
+                    
+                    <a href="shop.html#sneakers" class="category-card">
+                        <div class="category-image-wrapper">
+                            <img src="images/products/sneaker-pink.jpg" alt="Sneakers" loading="lazy">
+                        </div>
+                        <h3>Sneakers</h3>
+                        <span class="category-link">Shop →</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Chain Belt Collection — Horizontal Scroll -->
+        <section class="chain-collection">
+            <div class="container">
+                <div class="chain-header">
+                    <h2 class="section-title">The Chain Edit</h2>
+                    <div class="scroll-nav">
+                        <button class="scroll-btn scroll-left" aria-label="Scroll left">←</button>
+                        <button class="scroll-btn scroll-right" aria-label="Scroll right">→</button>
+                    </div>
+                </div>
+                
+                <div class="horizontal-scroll" id="chainScroll">
+                    
+                    <div class="scroll-item">
+                        <img src="images/chain-collection/chain-coin-wide.jpg" alt="Coin Chain Belt" loading="lazy">
+                        <div class="scroll-caption">
+                            The Sherehe Chain
+                            <small>KSh 2,200</small>
+                        </div>
+                    </div>
+                    
+                    <div class="scroll-item">
+                        <img src="images/chain-collection/chain-layered-wide.jpg" alt="Layered Chain Belt" loading="lazy">
+                        <div class="scroll-caption">
+                            The Layered Medallion
+                            <small>KSh 2,600</small>
+                        </div>
+                    </div>
+                    
+                    <div class="scroll-item">
+                        <img src="images/chain-collection/chain-disc-wide.jpg" alt="Disc Chain Belt" loading="lazy">
+                        <div class="scroll-caption">
+                            The Disc Chain
+                            <small>KSh 2,400</small>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Occasion Edit (Lookbook Preview) -->
+        <section class="occasion-edit">
+            <div class="container">
+                <div class="edit-header">
+                    <h2 class="section-title">The Occasion Edit</h2>
+                    <a href="lookbook.html" class="view-all">View Lookbook →</a>
+                </div>
+                <div class="edit-grid">
+                    <div class="edit-item large">
+                        <img src="images/lookbook/lookbook-thin-belts.jpg" alt="Thin Belts Collection" loading="lazy">
+                        <div class="edit-caption">Five shades. One signature buckle.</div>
+                    </div>
+                    <div class="edit-item">
+                        <img src="images/lookbook/lookbook-magazine.jpg" alt="Editorial Style" loading="lazy">
+                        <div class="edit-caption">Texture and detail.</div>
+                    </div>
+                    <div class="edit-item">
+                        <img src="images/lookbook/lookbook-corset.jpg" alt="Corset Belt Styled" loading="lazy">
+                        <div class="edit-caption">The Sculpt Corset.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container newsletter-wrapper">
+                <div class="newsletter-content">
+                    <h2>Join the Inner Circle</h2>
+                    <p>10% off your first order. Early access to new drops.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-secondary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            
+            <div class="footer-logo">
+                <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                <p class="footer-tagline">Black & Brown. Every Day. Every Occasion.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html#belts">Belts</a></li>
+                        <li><a href="shop.html#sneakers">Sneakers</a></li>
+                        <li><a href="shop.html#chain">Chain Belts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shipping.html">Shipping & Returns</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>📍 Nairobi, Kenya</p>
+                <p>💳 M-Pesa Paybill: 123456 • Account: OCCASION365</p>
+                <p>© 2025 Ocassion 365. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span>💬</span>
+        <span>Order via WhatsApp</span>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
