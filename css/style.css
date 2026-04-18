@@ -96,6 +96,24 @@ a {
     justify-content: space-between;
 }
 
+/* Logo on the left */
+.logo-wrapper {
+    position: static;
+    transform: none;
+    margin-right: auto;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Navigation in the center */
+.main-nav {
+    margin: 0 auto;
+}
+
 .main-nav ul {
     display: flex;
     gap: var(--spacing-md);
@@ -111,18 +129,6 @@ a {
 
 .main-nav a:hover {
     color: var(--brown);
-}
-
-.logo-wrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.logo img {
-    height: 50px;
-    width: auto;
-    display: block;
 }
 
 .header-actions {
@@ -677,6 +683,11 @@ a {
     .logo-wrapper {
         position: static;
         transform: none;
+        margin-right: 0;
+    }
+    
+    .header-container {
+        justify-content: space-between;
     }
     
     .hero-content {
