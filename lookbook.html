@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Lookbook | Ocassion 365</title>
+    <meta name="description" content="Editorial styling inspiration. The Occasion Edit.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .lookbook-header {
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            text-align: center;
+        }
+        
+        .lookbook-header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .lookbook-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Masonry Grid */
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 350px;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg) 0 var(--spacing-xl);
+        }
+        
+        .lookbook-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .lookbook-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .lookbook-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .lookbook-item.tall {
+            grid-row: span 2;
+        }
+        
+        .lookbook-item.wide {
+            grid-column: span 2;
+        }
+        
+        .lookbook-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .lookbook-item:hover .lookbook-overlay {
+            opacity: 1;
+        }
+        
+        .lookbook-overlay h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+            color: white;
+        }
+        
+        .lookbook-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .lookbook-overlay .shop-link {
+            display: inline-block;
+            margin-top: var(--spacing-xs);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid white;
+            padding-bottom: 2px;
+        }
+        
+        /* Editorial Notes Section */
+        .editorial-notes {
+            background: var(--white);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+        
+        .note-card {
+            text-align: center;
+        }
+        
+        .note-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .note-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .note-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-md);
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: var(--spacing-xs);
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .lightbox-prev {
+            left: -70px;
+        }
+        
+        .lightbox-next {
+            right: -70px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .lookbook-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .notes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .lookbook-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 300px;
+            }
+            
+            .lookbook-item.wide {
+                grid-column: span 1;
+            }
+            
+            .lookbook-item.tall {
+                grid-row: span 1;
+            }
+            
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
+    </div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <img src="images/logo/crowned-o-icon.png" alt="Menu" width="32" height="32">
+            </button>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html#belts">Belts</a></li>
+                    <li><a href="shop.html#sneakers">Sneakers</a></li>
+                    <li><a href="lookbook.html">Lookbook</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                </a>
+            </div>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-icon" aria-label="Cart">
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="contact.html" class="contact-link">Contact</a>
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="shop.html#belts">Belts</a></li>
+            <li><a href="shop.html#sneakers">Sneakers</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    
+    <main>
+        
+        <!-- Lookbook Header -->
+        <section class="lookbook-header">
+            <div class="container">
+                <h1>The Occasion Edit</h1>
+                <p>A visual study in black, brown, and the details that define a look.</p>
+            </div>
+        </section>
+        
+        <!-- Masonry Lookbook Grid -->
+        <div class="container">
+            <div class="lookbook-grid" id="lookbookGrid">
+                
+                <!-- Item 1: Thin Belts (Tall) -->
+                <div class="lookbook-item tall" data-index="0">
+                    <img src="images/lookbook/lookbook-thin-belts.jpg" alt="Thin Belts Collection" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>The Signature Collection</h3>
+                        <p>Five shades. One signature buckle.</p>
+                        <span class="shop-link">Shop Thin Belts →</span>
+                    </div>
+                </div>
+                
+                <!-- Item 2: Magazine Editorial -->
+                <div class="lookbook-item" data-index="1">
+                    <img src="images/lookbook/lookbook-magazine.jpg" alt="Editorial Style" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>Texture Study</h3>
+                        <p>Leather, gold, and paper.</p>
+                        <span class="shop-link">Explore →</span>
+                    </div>
+                </div>
+                
+                <!-- Item 3: Corset Belt (Wide) -->
+                <div class="lookbook-item wide" data-index="2">
+                    <img src="images/lookbook/lookbook-corset.jpg" alt="Corset Belt Styled" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>The Sculpt Corset</h3>
+                        <p>Structure meets silhouette.</p>
+                        <span class="shop-link">Shop Corset Belts →</span>
+                    </div>
+                </div>
+                
+                <!-- Item 4: Chain Coin -->
+                <div class="lookbook-item" data-index="3">
+                    <img src="images/chain-collection/chain-coin-wide.jpg" alt="Coin Chain Belt" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>The Sherehe Chain</h3>
+                        <p>Movement and sound.</p>
+                        <span class="shop-link">Shop Chain Belts →</span>
+                    </div>
+                </div>
+                
+                <!-- Item 5: Harness Brown -->
+                <div class="lookbook-item" data-index="4">
+                    <img src="images/products/harness-brown.jpg" alt="Earth Harness" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>The Earth Harness</h3>
+                        <p>Warm cognac. Quiet command.</p>
+                        <span class="shop-link">Shop Harness Belts →</span>
+                    </div>
+                </div>
+                
+                <!-- Item 6: Chain Layered (Tall) -->
+                <div class="lookbook-item tall" data-index="5">
+                    <img src="images/chain-collection/chain-layered-wide.jpg" alt="Layered Medallion" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>The Layered Medallion</h3>
+                        <p>Ornamental. Intricate.</p>
+                        <span class="shop-link">Shop Chain Belts →</span>
+                    </div>
+                </div>
+                
+                <!-- Item 7: Chain Disc -->
+                <div class="lookbook-item" data-index="6">
+                    <img src="images/chain-collection/chain-disc-wide.jpg" alt="Disc Chain" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>The Disc Chain</h3>
+                        <p>Minimal. Refined.</p>
+                        <span class="shop-link">Shop Chain Belts →</span>
+                    </div>
+                </div>
+                
+                <!-- Item 8: Sneaker Pink (Wide) -->
+                <div class="lookbook-item wide" data-index="7">
+                    <img src="images/products/sneaker-pink.jpg" alt="Soft Step Sneakers" loading="lazy">
+                    <div class="lookbook-overlay">
+                        <h3>The Soft Step</h3>
+                        <p>Pastel pink. Everyday ease.</p>
+                        <span class="shop-link">Shop Sneakers →</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Editorial Notes -->
+        <section class="editorial-notes">
+            <div class="container">
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <div class="note-icon">👑</div>
+                        <h3>The Crown Motif</h3>
+                        <p>Every Ocassion piece carries the crowned "O" — a mark of intention. It's in the buckle, the stitch, the way a belt sits against the waist.</p>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-icon">🎨</div>
+                        <h3>Black & Brown</h3>
+                        <p>Two shades. Infinite combinations. We build our entire collection around these grounding neutrals. They never compete. They only complete.</p>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-icon">🌸</div>
+                        <h3>The Floral Detail</h3>
+                        <p>A nod to softness in a structured world. You'll find it in our logo, our packaging, and the way we think about design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">←</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">→</button>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            
+            <div class="footer-logo">
+                <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                <p class="footer-tagline">Black & Brown. Every Day. Every Occasion.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html#belts">Belts</a></li>
+                        <li><a href="shop.html#sneakers">Sneakers</a></li>
+                        <li><a href="shop.html#chain">Chain Belts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shipping.html">Shipping & Returns</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>📍 Nairobi, Kenya</p>
+                <p>💳 M-Pesa Paybill: 123456 • Account: OCCASION365</p>
+                <p>© 2025 Ocassion 365. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span>💬</span>
+        <span>Order via WhatsApp</span>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Lightbox JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            const lookbookItems = document.querySelectorAll('.lookbook-item');
+            
+            let currentIndex = 0;
+            const images = [];
+            const captions = [];
+            
+            // Collect all images and captions
+            lookbookItems.forEach((item, index) => {
+                const img = item.querySelector('img');
+                const title = item.querySelector('h3')?.textContent || '';
+                const desc = item.querySelector('p')?.textContent || '';
+                
+                images.push({
+                    src: img.src,
+                    alt: img.alt,
+                    caption: title ? `${title} — ${desc}` : desc
+                });
+                
+                item.addEventListener('click', () => {
+                    currentIndex = index;
+                    showLightbox(currentIndex);
+                });
+            });
+            
+            function showLightbox(index) {
+                const image = images[index];
+                if (image) {
+                    lightboxImg.src = image.src;
+                    lightboxImg.alt = image.alt;
+                    lightboxCaption.textContent = image.caption;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showLightbox(currentIndex);
+            }
+            
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showLightbox(currentIndex);
+            }
+            
+            // Event listeners
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxNext.addEventListener('click', nextImage);
+            lightboxPrev.addEventListener('click', prevImage);
+            
+            // Close on background click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            });
+            
+            // Shop link clicks
+            document.querySelectorAll('.lookbook-overlay .shop-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const text = link.textContent;
+                    if (text.includes('Thin Belts')) {
+                        window.location.href = 'shop.html#classic';
+                    } else if (text.includes('Corset')) {
+                        window.location.href = 'shop.html#classic';
+                    } else if (text.includes('Chain')) {
+                        window.location.href = 'shop.html#chain';
+                    } else if (text.includes('Harness')) {
+                        window.location.href = 'shop.html#harness';
+                    } else if (text.includes('Sneakers')) {
+                        window.location.href = 'shop.html#sneakers';
+                    } else {
+                        window.location.href = 'shop.html';
+                    }
+                });
+            });
+            
+        });
+    </script>
+</body>
+</html>
