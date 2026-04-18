@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Shipping & Returns | Ocassion 365</title>
+    <meta name="description" content="Shipping, delivery, and returns information for Ocassion 365.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .page-header {
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Content Sections */
+        .policy-section {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .policy-section:nth-child(even) {
+            background: var(--white);
+        }
+        
+        .policy-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .policy-container h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-xs);
+            border-bottom: 1px solid rgba(92, 58, 33, 0.1);
+        }
+        
+        .policy-container h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--brown);
+            margin: var(--spacing-md) 0 var(--spacing-sm);
+        }
+        
+        .policy-container p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .policy-container ul {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-md);
+        }
+        
+        .policy-container li {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        /* Shipping Rates Table */
+        .rates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-md) 0;
+            background: var(--cream);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .rates-table th,
+        .rates-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(92, 58, 33, 0.1);
+        }
+        
+        .rates-table th {
+            background: var(--brown);
+            color: var(--cream);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+        
+        .rates-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .rates-table td:last-child {
+            font-weight: 500;
+            color: var(--brown);
+        }
+        
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .info-card {
+            background: var(--cream);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .info-card .icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .info-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .info-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        /* M-Pesa Section */
+        .mpesa-section {
+            background: var(--brown);
+            color: var(--cream);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            margin: var(--spacing-lg) 0;
+            text-align: center;
+        }
+        
+        .mpesa-section h3 {
+            color: var(--cream);
+            margin-top: 0;
+        }
+        
+        .mpesa-section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .mpesa-details {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+        
+        .mpesa-item {
+            text-align: center;
+        }
+        
+        .mpesa-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+        
+        .mpesa-value {
+            font-size: 1.8rem;
+            font-weight: 500;
+            font-family: var(--font-serif);
+        }
+        
+        /* FAQ Accordion */
+        .faq-section {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(92, 58, 33, 0.1);
+        }
+        
+        .faq-question {
+            padding: var(--spacing-md) 0;
+            font-weight: 500;
+            color: var(--brown);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .faq-question:hover {
+            opacity: 0.8;
+        }
+        
+        .faq-question .arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 0 var(--spacing-md) 0;
+            display: none;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .rates-table {
+                font-size: 0.9rem;
+            }
+            
+            .rates-table th,
+            .rates-table td {
+                padding: 12px 8px;
+            }
+            
+            .mpesa-details {
+                gap: var(--spacing-md);
+            }
+            
+            .mpesa-value {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
+    </div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <img src="images/logo/crowned-o-icon.png" alt="Menu" width="32" height="32">
+            </button>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html#belts">Belts</a></li>
+                    <li><a href="shop.html#sneakers">Sneakers</a></li>
+                    <li><a href="lookbook.html">Lookbook</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                </a>
+            </div>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-icon" aria-label="Cart">
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="contact.html" class="contact-link">Contact</a>
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="shop.html#belts">Belts</a></li>
+            <li><a href="shop.html#sneakers">Sneakers</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    
+    <main>
+        
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Shipping & Returns</h1>
+                <p>Everything you need to know about delivery and returns</p>
+            </div>
+        </section>
+        
+        <!-- Shipping Section -->
+        <section class="policy-section">
+            <div class="container">
+                <div class="policy-container">
+                    <h2>Shipping Information</h2>
+                    
+                    <p>We deliver nationwide across Kenya. All orders are processed within 24 hours on business days.</p>
+                    
+                    <h3>Delivery Rates</h3>
+                    
+                    <table class="rates-table">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Delivery Time</th>
+                                <th>Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nairobi (within CBD and suburbs)</td>
+                                <td>1–2 business days</td>
+                                <td>KSh 250</td>
+                            </tr>
+                            <tr>
+                                <td>Nairobi (orders over KSh 7,500)</td>
+                                <td>1–2 business days</td>
+                                <td>FREE</td>
+                            </tr>
+                            <tr>
+                                <td>Rest of Kenya</td>
+                                <td>2–4 business days</td>
+                                <td>KSh 400</td>
+                            </tr>
+                            <tr>
+                                <td>Rest of Kenya (orders over KSh 10,000)</td>
+                                <td>2–4 business days</td>
+                                <td>FREE</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="icon">📦</div>
+                            <h4>Processing Time</h4>
+                            <p>Orders placed before 2pm EAT ship same day. Orders after 2pm ship next business day.</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="icon">🚚</div>
+                            <h4>Courier Partners</h4>
+                            <p>We use Fargo Courier and G4S for reliable nationwide delivery.</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="icon">📍</div>
+                            <h4>Tracking</h4>
+                            <p>Tracking number provided via WhatsApp once your order ships.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Pickup Option</h3>
+                    <p>Free pickup available in Nairobi by appointment. Select "Pickup" at checkout and we will contact you to arrange a time.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- M-Pesa Payment Section -->
+        <section class="policy-section">
+            <div class="container">
+                <div class="policy-container">
+                    <h2>Payment Information</h2>
+                    
+                    <p>We accept M-Pesa for all orders. Payment must be completed before your order ships.</p>
+                    
+                    <div class="mpesa-section">
+                        <h3>M-Pesa Payment Details</h3>
+                        <p>Use the details below to complete your payment</p>
+                        
+                        <div class="mpesa-details">
+                            <div class="mpesa-item">
+                                <div class="mpesa-label">Paybill Number</div>
+                                <div class="mpesa-value">123456</div>
+                            </div>
+                            <div class="mpesa-item">
+                                <div class="mpesa-label">Account Number</div>
+                                <div class="mpesa-value">OCCASION365</div>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: var(--spacing-md); font-size: 0.9rem;">
+                            After payment, send a screenshot via WhatsApp to confirm your order.
+                        </p>
+                    </div>
+                    
+                    <h3>How to Pay</h3>
+                    <ol style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-md);">
+                        <li style="margin-bottom: var(--spacing-xs);">Go to M-Pesa on your phone</li>
+                        <li style="margin-bottom: var(--spacing-xs);">Select Lipa na M-Pesa</li>
+                        <li style="margin-bottom: var(--spacing-xs);">Choose Paybill</li>
+                        <li style="margin-bottom: var(--spacing-xs);">Enter Business Number: <strong>123456</strong></li>
+                        <li style="margin-bottom: var(--spacing-xs);">Enter Account Number: <strong>OCCASION365</strong></li>
+                        <li style="margin-bottom: var(--spacing-xs);">Enter the amount</li>
+                        <li style="margin-bottom: var(--spacing-xs);">Enter your M-Pesa PIN and send</li>
+                        <li>Share the confirmation message via WhatsApp</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Returns Section -->
+        <section class="policy-section">
+            <div class="container">
+                <div class="policy-container">
+                    <h2>Returns & Exchanges</h2>
+                    
+                    <p>We want you to love your Ocassion 365 pieces. If something is not right, we are here to help.</p>
+                    
+                    <h3>Return Policy</h3>
+                    <ul>
+                        <li>Returns accepted within <strong>7 days</strong> of delivery</li>
+                        <li>Items must be <strong>unworn, unwashed, and in original condition</strong> with all tags attached</li>
+                        <li>Buyer responsible for return shipping costs</li>
+                        <li>Refund processed within 3–5 business days after we receive the item</li>
+                    </ul>
+                    
+                    <h3>Non-Returnable Items</h3>
+                    <ul>
+                        <li>Sale or discounted items (final sale)</li>
+                        <li>Items showing signs of wear or use</li>
+                        <li>Items returned without original packaging</li>
+                    </ul>
+                    
+                    <h3>How to Initiate a Return</h3>
+                    <ol style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-md);">
+                        <li>Contact us via WhatsApp or email within 7 days of receiving your order</li>
+                        <li>Include your order number and reason for return</li>
+                        <li>We will provide return instructions and address</li>
+                        <li>Ship the item back to us</li>
+                        <li>Once received and inspected, we will process your refund</li>
+                    </ol>
+                    
+                    <h3>Exchanges</h3>
+                    <p>For size exchanges, please initiate a return and place a new order for the correct size. This ensures the fastest processing.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="policy-section">
+            <div class="container">
+                <div class="policy-container">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-section">
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Do you ship outside Kenya?</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                Currently, we only ship within Kenya. We hope to expand to East Africa and beyond soon.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Can I change or cancel my order?</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                Orders can be changed or cancelled within 2 hours of placing them. Please contact us on WhatsApp immediately if you need to make changes.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What if my item arrives damaged?</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                Please take photos of the damaged item and packaging and contact us within 48 hours of delivery. We will arrange a replacement or refund.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How do I know my size?</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                Each product page includes size guidance. For belts, we recommend measuring your waist where you intend to wear the belt. For sneakers, we fit true to standard Kenyan sizes. Contact us on WhatsApp for personalized sizing help.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Do you offer wholesale or bulk orders?</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                Yes, we offer wholesale pricing for boutiques and stylists. Please email hello@ocassion365.com with "Wholesale Inquiry" in the subject line.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            
+            <div class="footer-logo">
+                <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                <p class="footer-tagline">Black & Brown. Every Day. Every Occasion.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html#belts">Belts</a></li>
+                        <li><a href="shop.html#sneakers">Sneakers</a></li>
+                        <li><a href="shop.html#chain">Chain Belts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shipping.html">Shipping & Returns</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>📍 Nairobi, Kenya</p>
+                <p>💳 M-Pesa Paybill: 123456 • Account: OCCASION365</p>
+                <p>© 2025 Ocassion 365. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span>💬</span>
+        <span>Order via WhatsApp</span>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- FAQ Accordion JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+        });
+    </script>
+</body>
+</html>
