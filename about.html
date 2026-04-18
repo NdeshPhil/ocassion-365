@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>About | Ocassion 365</title>
+    <meta name="description" content="The story behind Ocassion 365. Premium accessories for every day.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .page-header {
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Image Section */
+        .about-hero {
+            padding: var(--spacing-md) 0 var(--spacing-xl);
+        }
+        
+        .about-hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        
+        /* Story Section */
+        .story-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        
+        .story-content h2 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .story-content p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--cream);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .value-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .value-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        /* The Name Section */
+        .name-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+        }
+        
+        .name-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .name-content h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--brown);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .name-content .crowned-o {
+            font-size: 4rem;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .name-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        .name-content .tagline {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--brown);
+            margin-top: var(--spacing-lg);
+            font-style: italic;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .name-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
+    </div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <img src="images/logo/crowned-o-icon.png" alt="Menu" width="32" height="32">
+            </button>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html#belts">Belts</a></li>
+                    <li><a href="shop.html#sneakers">Sneakers</a></li>
+                    <li><a href="lookbook.html">Lookbook</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                </a>
+            </div>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-icon" aria-label="Cart">
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="contact.html" class="contact-link">Contact</a>
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="shop.html#belts">Belts</a></li>
+            <li><a href="shop.html#sneakers">Sneakers</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    
+    <main>
+        
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Story</h1>
+                <p>The meaning behind the crowned "O"</p>
+            </div>
+        </section>
+        
+        <!-- Hero Image -->
+        <section class="about-hero">
+            <div class="container">
+                <img src="images/lookbook/lookbook-magazine.jpg" alt="Ocassion 365 Editorial" class="about-hero-image">
+            </div>
+        </section>
+        
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h2>Black & Brown. Every Day.</h2>
+                        <p>Ocassion 365 was born from a simple observation: the accessories that matter most are the ones you reach for without thinking. The belt that cinches your favorite trousers. The sneakers that carry you from morning coffee to evening plans. The chain that catches the light just so.</p>
+                        <p>We build our collection around two grounding neutrals — black and brown. They don't shout. They don't compete. They simply complete whatever you're wearing, whatever the occasion.</p>
+                        <p>Every piece is designed in Nairobi, for the woman who moves through her day with quiet confidence. No logos. No trends. Just intention.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="images/lookbook/lookbook-thin-belts.jpg" alt="Ocassion 365 Thin Belts">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center;">What We Stand For</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">👑</div>
+                        <h3>Quiet Luxury</h3>
+                        <p>Luxury doesn't need to announce itself. It's in the weight of the buckle, the edge of the leather, the way a piece feels in your hand.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>Intentional Design</h3>
+                        <p>We don't chase seasons. Each piece is designed to work with what you already own — and to last beyond the current moment.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🌍</div>
+                        <h3>Local Roots</h3>
+                        <p>Designed in Nairobi. Made for the modern Kenyan wardrobe. We understand how you live because we live here too.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Name Section -->
+        <section class="name-section">
+            <div class="container">
+                <div class="name-content">
+                    <h2>The Meaning of Ocassion 365</h2>
+                    <div class="crowned-o">
+                        <img src="images/logo/crowned-o-icon.png" alt="Crowned O" style="height: 80px;">
+                    </div>
+                    <p><strong>Ocassion</strong> — a deliberate spelling. The "O" stands alone, crowned. It represents the wearer. You are the occasion.</p>
+                    <p><strong>365</strong> — because style doesn't take days off. Your accessories should work as hard as you do, every single day of the year.</p>
+                    <p>The floral detail? A reminder that strength and softness belong together.</p>
+                    <p class="tagline">You are the occasion. Every day.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            
+            <div class="footer-logo">
+                <img src="images/logo/ocassion-logo-full.png" alt="Ocassion 365">
+                <p class="footer-tagline">Black & Brown. Every Day. Every Occasion.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html#belts">Belts</a></li>
+                        <li><a href="shop.html#sneakers">Sneakers</a></li>
+                        <li><a href="shop.html#chain">Chain Belts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shipping.html">Shipping & Returns</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>📍 Nairobi, Kenya</p>
+                <p>💳 M-Pesa Paybill: 123456 • Account: OCCASION365</p>
+                <p>© 2025 Ocassion 365. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span>💬</span>
+        <span>Order via WhatsApp</span>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
