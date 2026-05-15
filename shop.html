@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Shop | Ocassion 365</title>
-    <meta name="description" content="Shop premium belts, chain belts, and sneakers. Black and brown essentials.">
+    <meta name="description" content="Shop sneakers, belts, chains, and scarves. Black and brown essentials.">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Additional Shop-Specific Styles -->
     <style>
         .shop-header {
             padding: var(--spacing-lg) 0 var(--spacing-md);
@@ -69,8 +65,8 @@
         
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-lg) var(--spacing-md);
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
             padding: var(--spacing-md) 0 var(--spacing-xl);
         }
         
@@ -128,6 +124,10 @@
             z-index: 2;
         }
         
+        .product-badge.restocked {
+            background: #8B6914;
+        }
+        
         .product-info {
             padding: var(--spacing-xs) 0;
             text-align: center;
@@ -143,9 +143,16 @@
         
         .product-title {
             font-family: var(--font-serif);
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 4px;
             color: var(--brown);
+            line-height: 1.3;
+        }
+        
+        .product-sizes {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
         }
         
         .product-price {
@@ -171,22 +178,19 @@
             padding-top: var(--spacing-md);
         }
         
-        .section-header h2 {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            color: var(--brown);
-            margin-bottom: var(--spacing-xs);
-            padding-bottom: var(--spacing-xs);
-            border-bottom: 1px solid rgba(92, 58, 33, 0.1);
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        @media (max-width: 640px) {
+        @media (max-width: 480px) {
             .product-grid {
                 grid-template-columns: 1fr;
             }
@@ -204,12 +208,10 @@
 </head>
 <body>
     
-    <!-- Announcement Bar -->
     <div class="announcement-bar">
         <p>Free delivery in Nairobi on orders over KSh 7,500 • Pay with M-Pesa</p>
     </div>
     
-    <!-- Header -->
     <header class="site-header">
         <div class="header-container">
             
@@ -226,10 +228,10 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="shop.html#belts">Belts</a></li>
                     <li><a href="shop.html#sneakers">Sneakers</a></li>
-                    <li><a href="lookbook.html">Lookbook</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html#belts">Belts</a></li>
+                    <li><a href="shop.html#chains">Chains</a></li>
+                    <li><a href="shop.html#scarves">Scarves</a></li>
                 </ul>
             </nav>
             
@@ -243,13 +245,14 @@
         </div>
     </header>
     
-    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <button class="mobile-menu-close" aria-label="Close menu">✕</button>
         <ul>
             <li><a href="shop.html">Shop All</a></li>
-            <li><a href="shop.html#belts">Belts</a></li>
             <li><a href="shop.html#sneakers">Sneakers</a></li>
+            <li><a href="shop.html#belts">Belts</a></li>
+            <li><a href="shop.html#chains">Chains</a></li>
+            <li><a href="shop.html#scarves">Scarves</a></li>
             <li><a href="lookbook.html">Lookbook</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -268,181 +271,1498 @@
         <div class="container">
             <div class="shop-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="harness">Harness Belts</button>
-                <button class="filter-btn" data-filter="chain">Chain Belts</button>
-                <button class="filter-btn" data-filter="classic">Classic Belts</button>
                 <button class="filter-btn" data-filter="sneakers">Sneakers</button>
+                <button class="filter-btn" data-filter="belts">Belts</button>
+                <button class="filter-btn" data-filter="chains">Chains</button>
+                <button class="filter-btn" data-filter="scarves">Scarves</button>
             </div>
         </div>
         
         <div class="container">
             <div class="product-grid" id="productGrid">
                 
-                <div class="product-card" data-category="harness">
+                <!-- ============ SNEAKERS ============ -->
+                
+                <div class="product-card" data-category="sneakers">
                     <div class="product-image-wrapper">
-                        <span class="product-badge">New</span>
-                        <img src="images/hero/hero-1.jpg" alt="The Crown Harness - Black" loading="lazy">
+                        <img src="images/products/sneaker-1.jpg" alt="Jordan 1 Low Black Patent Elephant" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Harness Belt</div>
-                        <h3 class="product-title">The Crown Harness — Black</h3>
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 1 Low Black Patent Elephant</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 1 Low Black Patent Elephant" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-2.jpg" alt="Air Jordan 1 Low Panda" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Jordan 1 Low Panda</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Jordan 1 Low Panda" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-3.jpg" alt="Jordan 1 Low Wolf Grey" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 1 Low Wolf Grey</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 1 Low Wolf Grey" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-4.jpg" alt="Jordan 1 Low SE Denim Sequin" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 1 Low SE "Denim Sequin"</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 1 Low SE Denim Sequin" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-5.jpg" alt="Jordan 1 Low Pink Foam" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 1 Low Pink Foam</h3>
+                        <div class="product-sizes">Sizes: 36–41</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 1 Low Pink Foam" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-6.jpg" alt="Jordan 3 Retro Valentine's Day" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 3 Retro "Valentine's Day"</h3>
+                        <div class="product-sizes">Sizes: 36–41</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 3 Retro Valentine's Day" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-7.jpg" alt="Jordan 3 Patchwork" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 3 "Patchwork"</h3>
+                        <div class="product-sizes">Sizes: 36–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 3 Patchwork" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-8.jpg" alt="Jordan 3 Retro Year of the Tiger" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 3 Retro "Year of the Tiger"</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 3 Retro Year of the Tiger" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-9.jpg" alt="Jordan 3 Retro Black Cat" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Jordan 3 Retro 'Black Cat'</h3>
+                        <div class="product-sizes">Sizes: 36–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Jordan 3 Retro Black Cat" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-10.jpg" alt="AirMax Purple Camo" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">AirMax "Purple Camo"</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="AirMax Purple Camo" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-11.jpg" alt="AirMax 95 Olive Green" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">AirMax 95 "Olive Green"</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="AirMax 95 Olive Green" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-12.jpg" alt="AirMax 90" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">AirMax 90</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="AirMax 90" data-price="3000">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-13.jpg" alt="Nike AirMax 95/97 Ducks Of a Feather Storm" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Nike AirMax 95/97 Ducks Of a Feather "Storm"</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Nike AirMax 95/97 Ducks Of a Feather Storm" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-14.jpg" alt="Air Max 95/97 Ducks of a Feather" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Max 95/97 Ducks of a Feather</h3>
+                        <div class="product-sizes">Sizes: 40, 41, 42, 44, 45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Max 95/97 Ducks of a Feather" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge restocked">Restocked</span>
+                        <img src="images/products/sneaker-15.jpg" alt="Nike Air Max 97 Olive" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Nike Air Max 97 "Olive"</h3>
+                        <div class="product-sizes">Sizes: 40, 45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Nike Air Max 97 Olive" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-16.jpg" alt="AirMax 97" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">AirMax 97</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="AirMax 97" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-17a.jpg" alt="Nike Air Max Plus" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Nike Air Max Plus</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Nike Air Max Plus" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-18.jpg" alt="TN" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">TN</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="TN" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-19.jpg" alt="Nike TN Thermoactive" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Nike TN Thermoactive</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Nike TN Thermoactive" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-20a.jpg" alt="Puma Suede" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Puma Suede</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Puma Suede" data-price="3000">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-21.jpg" alt="New Balance 740" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">New Balance 740</h3>
+                        <div class="product-sizes">Sizes: 36, 39, 40, 41, 42, 45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="New Balance 740" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-22.jpg" alt="New Balance 9060" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">New Balance 9060</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
                         <div class="product-price">KSh 3,500</div>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Crown Harness - Black" data-price="3500">Add to Cart</button>
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="New Balance 9060" data-price="3500">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card" data-category="harness">
+                <div class="product-card" data-category="sneakers">
                     <div class="product-image-wrapper">
-                        <img src="images/products/harness-brown.jpg" alt="The Earth Harness - Brown" loading="lazy">
+                        <img src="images/products/sneaker-23.jpg" alt="New Balance 1000" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Harness Belt</div>
-                        <h3 class="product-title">The Earth Harness — Brown</h3>
-                        <div class="product-price">KSh 3,800</div>
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">New Balance 1000</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,500</div>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Earth Harness - Brown" data-price="3800">Add to Cart</button>
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="New Balance 1000" data-price="3500">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card" data-category="chain">
+                <div class="product-card" data-category="sneakers">
                     <div class="product-image-wrapper">
-                        <img src="images/chain-collection/chain-coin-wide.jpg" alt="The Sherehe Chain" loading="lazy">
+                        <img src="images/products/sneaker-24.jpg" alt="New Balance 1000" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Chain Belt</div>
-                        <h3 class="product-title">The Sherehe Chain — Gold</h3>
-                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">New Balance 1000</h3>
+                        <div class="product-sizes">Sizes: 36–41</div>
+                        <div class="product-price">KSh 3,500</div>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Sherehe Chain" data-price="2200">Add to Cart</button>
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="New Balance 1000" data-price="3500">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card" data-category="chain">
+                <div class="product-card" data-category="sneakers">
                     <div class="product-image-wrapper">
-                        <img src="images/chain-collection/chain-layered-wide.jpg" alt="The Layered Medallion" loading="lazy">
+                        <img src="images/products/sneaker-25.jpg" alt="New Balance 1000" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Chain Belt</div>
-                        <h3 class="product-title">The Layered Medallion</h3>
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">New Balance 1000</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,500</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="New Balance 1000" data-price="3500">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-26.jpg" alt="Air Jordan 4RM Pink Oxford" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Jordan 4RM "Pink Oxford"</h3>
+                        <div class="product-sizes">Sizes: 36–41</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Jordan 4RM Pink Oxford" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-27.jpg" alt="Air Jordan Nigel 4 RM" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Jordan Nigel 4 RM</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Jordan Nigel 4 RM" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-28.jpg" alt="AirMax 95 Sketch" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">AirMax 95 "Sketch"</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="AirMax 95 Sketch" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-29.jpg" alt="AirMax 95 Triple White" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">AirMax 95 "Triple White"</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="AirMax 95 Triple White" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-30.jpg" alt="Nike AirMax 95 Orange Camo" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Nike AirMax 95 "Orange Camo"</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Nike AirMax 95 Orange Camo" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-31.jpg" alt="Air Max 95/97 Ducks of a Feather" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Max 95/97 Ducks of a Feather</h3>
+                        <div class="product-sizes">Sizes: 40, 41, 42, 44, 45</div>
+                        <div class="product-price">KSh 3,300</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Max 95/97 Ducks of a Feather" data-price="3300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-32.jpg" alt="Nike Air Force Valentine's Day" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Nike Air Force Valentine's Day</h3>
+                        <div class="product-sizes">Sizes: 36–41</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Nike Air Force Valentine's Day" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-33.jpg" alt="Air Force Customised LV" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Force Customised LV</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Force Customised LV" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-34.jpg" alt="AF1 Chrome" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">AF1 Chrome</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="AF1 Chrome" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-35a.jpg" alt="Air Force 1 High-Cut" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Force 1 High-Cut</h3>
+                        <div class="product-sizes">Sizes: 36–42</div>
+                        <div class="product-price">KSh 2,800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Force 1 High-Cut" data-price="2800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge restocked">Restocked</span>
+                        <img src="images/products/sneaker-36a.jpg" alt="Adidas Samba Single Sole" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Adidas Samba Single Sole</h3>
+                        <div class="product-sizes">Sizes: 36–45</div>
                         <div class="product-price">KSh 2,600</div>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Layered Medallion" data-price="2600">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-category="chain">
-                    <div class="product-image-wrapper">
-                        <img src="images/chain-collection/chain-disc-wide.jpg" alt="The Disc Chain" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Chain Belt</div>
-                        <h3 class="product-title">The Disc Chain — Gold</h3>
-                        <div class="product-price">KSh 2,400</div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Disc Chain" data-price="2400">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-category="classic">
-                    <div class="product-image-wrapper">
-                        <img src="images/lookbook/lookbook-thin-belts.jpg" alt="The Signature Thin Belt" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Classic Belt</div>
-                        <h3 class="product-title">The Signature Thin Belt</h3>
-                        <div class="product-price">KSh 1,800</div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Signature Thin Belt" data-price="1800">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card wide-image" data-category="classic">
-                    <div class="product-image-wrapper">
-                        <img src="images/products/belt-brown-wide.jpg" alt="The Wide Leather Belt - Brown" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Classic Belt</div>
-                        <h3 class="product-title">The Wide Belt — Brown</h3>
-                        <div class="product-price">KSh 4,200</div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Wide Belt - Brown" data-price="4200">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card wide-image" data-category="classic">
-                    <div class="product-image-wrapper">
-                        <img src="images/products/belt-black-wide.jpg" alt="The Wide Leather Belt - Black" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Classic Belt</div>
-                        <h3 class="product-title">The Wide Belt — Black</h3>
-                        <div class="product-price">KSh 4,200</div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Wide Belt - Black" data-price="4200">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-category="classic">
-                    <div class="product-image-wrapper">
-                        <img src="images/lookbook/lookbook-corset.jpg" alt="The Sculpt Corset - Black" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Corset Belt</div>
-                        <h3 class="product-title">The Sculpt Corset — Black</h3>
-                        <div class="product-price">KSh 4,800</div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Sculpt Corset" data-price="4800">Add to Cart</button>
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Adidas Samba Single Sole" data-price="2600">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="product-card" data-category="sneakers">
                     <div class="product-image-wrapper">
-                        <img src="images/hero/hero-2.jpg" alt="The Statement Runner - Neon" loading="lazy">
+                        <img src="images/products/sneaker-37.jpg" alt="Dior Homme B22 Grey & Blue" loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category">Sneakers</div>
-                        <h3 class="product-title">The Statement Runner — Neon</h3>
-                        <div class="product-price">KSh 6,500</div>
+                        <h3 class="product-title">Dior Homme B22 Grey & Blue</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,300</div>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Statement Runner - Neon" data-price="6500">Add to Cart</button>
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Dior Homme B22 Grey & Blue" data-price="3300">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="product-card" data-category="sneakers">
                     <div class="product-image-wrapper">
-                        <img src="images/products/sneaker-grey.jpg" alt="The Daily Stride - Grey" loading="lazy">
+                        <img src="images/products/sneaker-38a.jpg" alt="Dior Homme" loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category">Sneakers</div>
-                        <h3 class="product-title">The Daily Stride — Grey</h3>
-                        <div class="product-price">KSh 5,200</div>
+                        <h3 class="product-title">Dior Homme</h3>
+                        <div class="product-sizes">Sizes: 40, 43, 44, 45</div>
+                        <div class="product-price">KSh 3,300</div>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Daily Stride - Grey" data-price="5200">Add to Cart</button>
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Dior Homme" data-price="3300">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="product-card" data-category="sneakers">
                     <div class="product-image-wrapper">
-                        <img src="images/products/sneaker-pink.jpg" alt="The Soft Step - Pink" loading="lazy">
+                        <img src="images/products/sneaker-39.jpg" alt="Asics" loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category">Sneakers</div>
-                        <h3 class="product-title">The Soft Step — Pink</h3>
-                        <div class="product-price">KSh 5,200</div>
+                        <h3 class="product-title">Asics</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,500</div>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-small add-to-cart" data-product="Soft Step - Pink" data-price="5200">Add to Cart</button>
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Asics" data-price="3500">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-40.jpg" alt="ASICS GEL - NYC" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">ASICS GEL - NYC</h3>
+                        <div class="product-sizes">Sizes: 36–45</div>
+                        <div class="product-price">KSh 3,500</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="ASICS GEL - NYC" data-price="3500">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-41.jpg" alt="Air Force Customized" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Force Customized</h3>
+                        <div class="product-sizes">Sizes: 40, 41, 42, 43, 44, 45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Force Customized" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-42.jpg" alt="Air Force Customised" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Air Force Customised</h3>
+                        <div class="product-sizes">Sizes: 40–45</div>
+                        <div class="product-price">KSh 3,100</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Air Force Customised" data-price="3100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-43.jpg" alt="Asics" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Asics</h3>
+                        <div class="product-sizes">Sizes: 38–45</div>
+                        <div class="product-price">KSh 3,500</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Asics" data-price="3500">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-44.jpg" alt="Dior Homme" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Dior Homme</h3>
+                        <div class="product-sizes">Sizes: 40, 41, 42, 43, 44, 45</div>
+                        <div class="product-price">TBD</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Dior Homme" data-price="0">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-45.jpg" alt="Adidas Samba Double Sole" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Adidas Samba Double Sole</h3>
+                        <div class="product-sizes">Sizes: 36–45</div>
+                        <div class="product-price">KSh 2,800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Adidas Samba Double Sole" data-price="2800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge restocked">Restocked</span>
+                        <img src="images/products/sneaker-46.jpg" alt="New Balance 530" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">New Balance 530</h3>
+                        <div class="product-sizes">Sizes: 36–45</div>
+                        <div class="product-price">KSh 3,000</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="New Balance 530" data-price="3000">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="sneakers">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/sneaker-47.jpg" alt="Nike Air Force Swoosh" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sneakers</div>
+                        <h3 class="product-title">Nike Air Force Swoosh</h3>
+                        <div class="product-sizes">Sizes: 40–44</div>
+                        <div class="product-price">TBD</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Nike Air Force Swoosh" data-price="0">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ============ BELTS ============ -->
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-1.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 1" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-2.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 2" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-3.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 3" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-4.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 4" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-5.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 5" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-6.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 6" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-7.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 7" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-8.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 8" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="belts">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/belt-9.jpg" alt="Belt" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Belt</div>
+                        <h3 class="product-title">Belt</h3>
+                        <div class="product-price">KSh 2,200</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Belt 9" data-price="2200">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ============ CHAINS ============ -->
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-1.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 1" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-2.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 2" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-3.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 3" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-4.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 4" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-5.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 5" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-6.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 6" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-7.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 7" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-8.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 8" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-9.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 9" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-10.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 10" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-11.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 11" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-12.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 12" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-13.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 13" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-14.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 14" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-15.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 15" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-16.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 16" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-17.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 17" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-18.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 18" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-19.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 19" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-20.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 20" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-21.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 21" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-22.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 22" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-23.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 23" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-24.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 24" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-25.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 25" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-26.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 26" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-27.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 27" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-28.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 28" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-29.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 29" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-30.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 30" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-31.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 31" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-32.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 32" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-33.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 33" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-34.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 34" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-35.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 35" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-36.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 36" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-37.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 37" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="chains">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/chain-38.jpg" alt="Stainless Steel Chain" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chain</div>
+                        <h3 class="product-title">Stainless Steel Chain</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Chain 38" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ============ SCARVES ============ -->
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-1.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 1" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-2.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 2" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-3.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 3" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-4.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 4" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-5.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 5" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-6.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 6" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-7.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 7" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="scarves">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/scarf-8.jpg" alt="Silk Scarf" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Scarf</div>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-price">KSh 800</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small add-to-cart" data-product="Scarf 8" data-price="800">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -451,11 +1771,10 @@
         </div>
         
         <div class="container">
-            <div id="belts" class="section-header"></div>
-            <div id="harness" class="section-header"></div>
-            <div id="chain" class="section-header"></div>
-            <div id="classic" class="section-header"></div>
             <div id="sneakers" class="section-header"></div>
+            <div id="belts" class="section-header"></div>
+            <div id="chains" class="section-header"></div>
+            <div id="scarves" class="section-header"></div>
         </div>
         
     </main>
@@ -472,9 +1791,10 @@
                 <div class="footer-column">
                     <h4>Shop</h4>
                     <ul>
-                        <li><a href="shop.html#belts">Belts</a></li>
                         <li><a href="shop.html#sneakers">Sneakers</a></li>
-                        <li><a href="shop.html#chain">Chain Belts</a></li>
+                        <li><a href="shop.html#belts">Belts</a></li>
+                        <li><a href="shop.html#chains">Chains</a></li>
+                        <li><a href="shop.html#scarves">Scarves</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -556,15 +1876,6 @@
                         setTimeout(() => {
                             this.textContent = 'Add to Cart';
                         }, 1500);
-                    }
-                });
-            });
-            
-            products.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    if (!e.target.classList.contains('add-to-cart')) {
-                        const productTitle = this.querySelector('.product-title')?.textContent || 'Product';
-                        alert('Product page coming soon: ' + productTitle);
                     }
                 });
             });
